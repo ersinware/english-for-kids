@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#283593</color>
+    <color name="colorPrimaryDark">#1A237E</color>
+    <color name="colorAccent">#EF6C00</color>
+
+    <color name="colorTextWhite">#fff</color>
+    <color name="colorRadioButtonTint">#BC040404</color>
+
+    <color name="colorColorsBackground">#AD1457</color>
+    <color name="colorAlphabetBackground">#1565C0</color>
+    <color name="colorAnimalsBackground">#2E7D32</color>
+    <color name="colorFruitsBackground">#C62828</color>
+    <color name="colorObjectsBackground">#EF6C00</color>
+    <color name="colorNumbersBackground">#6A1B9A</color>
+
+    <color name="colorColorsButtonTint">#fff</color>
+    <color name="colorAlphabetButtonTint">#fff</color>
+    <color name="colorAnimalsButtonTint">#fff</color>
+    <color name="colorFruitsButtonTint">#fff</color>
+    <color name="colorObjectsButtonTint">#fff</color>
+    <color name="colorNumbersButtonTint">#fff</color>
+
+    <color name="colorAlphabetTestCard">@color/colorAlphabetBackground</color>
+    <color name="colorAnimalsTestCard">@color/colorAnimalsBackground</color>
+    <color name="colorFruitsTestCard">@color/colorFruitsBackground</color>
+    <color name="colorObjectsTestCard">@color/colorObjectsBackground</color>
+    <color name="colorNumbersTestCard">@color/colorNumbersBackground</color>
+
+    <color name="colorConfettiOne">#E53935</color>
+    <color name="colorConfettiTwo">#D81B60</color>
+    <color name="colorConfettiThree">#8E24AA</color>
+    <color name="colorConfettiFour">#5E35B1</color>
+    <color name="colorConfettiFive">#3949AB</color>
+    <color name="colorConfettiSix">#1E88E5</color>
+    <color name="colorConfettiSeven">#039BE5</color>
+    <color name="colorConfettiEight">#00ACC1</color>
+    <color name="colorConfettiNine">#00897B</color>
+    <color name="colorConfettiTen">#43A047</color>
+    <color name="colorConfettiEleven">#7CB342</color>
+    <color name="colorConfettiTwelve">#C0CA33</color>
+    <color name="colorConfettiThirteen">#FDD835</color>
+    <color name="colorConfettiFourteen">#FFB300</color>
+    <color name="colorConfettiFifteen">#FB8C00</color>
 </resources>

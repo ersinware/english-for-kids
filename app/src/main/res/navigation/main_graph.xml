@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.englishforkids.view.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:popUpTo="@id/main_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homepageFragment"
+        android:name="com.englishforkids.view.HomepageFragment"
+        android:label="fragment_homepage"
+        tools:layout="@layout/fragment_homepage">
+        <action
+            android:id="@+id/action_homepageFragment_to_alphabetFragment"
+            app:destination="@id/alphabetFragment" />
+        <action
+            android:id="@+id/action_homepageFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_homepageFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/alphabetTestFragment"
+        android:name="com.englishforkids.view.test.AlphabetTestFragment"
+        android:label="AlphabetTestFragment" />
+
+    <fragment
+        android:id="@+id/colorTestFragment"
+        android:name="com.englishforkids.view.test.ColorTestFragment"
+        android:label="ColorTestFragment" />
+
+    <fragment
+        android:id="@+id/imageTestFragment"
+        android:name="com.englishforkids.view.test.ImageTestFragment"
+        android:label="ImageTestFragment">
+
+        <argument
+            android:name="target"
+            app:argType="com.englishforkids.view.utils.Target"
+            app:nullable="false" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/alphabetFragment"
+        android:name="com.englishforkids.view.teaching.alphabet.AlphabetFragment"
+        android:label="AlphabetFragment" >
+        <action
+            android:id="@+id/action_alphabetFragment_to_alphabetTestFragment"
+            app:destination="@id/alphabetTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.englishforkids.view.teaching.color.ColorFragment"
+        android:label="ColorFragment" >
+        <action
+            android:id="@+id/action_colorFragment_to_colorTestFragment"
+            app:destination="@id/colorTestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.englishforkids.view.teaching.image.ImageFragment"
+        android:label="ImageFragment" >
+
+        <argument
+            android:name="target"
+            app:argType="com.englishforkids.view.utils.Target"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/action_imageFragment_to_imageTestFragment"
+            app:destination="@id/imageTestFragment" />
+    </fragment>
+
+</navigation>

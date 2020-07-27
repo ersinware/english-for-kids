@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.englishforkids.viewmodel.color.ColorTestModel" />
+
+        <variable
+            name="handler"
+            type="com.englishforkids.view.test.ColorTestFragment" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorColorsBackground"
+        tools:context=".view.test.ColorTestFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_round_arrow_back_24"
+                app:title="@string/colorsTestTitle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/testCardsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/firstCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.firstColorId)}"
+                    app:cardBackgroundColorId="@{model.firstColorId}"
+                    app:layout_constraintBottom_toTopOf="@id/thirdCard"
+                    app:layout_constraintEnd_toStartOf="@id/secondCard"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5">
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/secondCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.secondColorId)}"
+                    app:cardBackgroundColorId="@{model.secondColorId}"
+                    app:layout_constraintBottom_toTopOf="@id/fourthCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/firstCard"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5">
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/thirdCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.thirdColorId)}"
+                    app:cardBackgroundColorId="@{model.thirdColorId}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/fourthCard"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstCard"
+                    app:layout_constraintVertical_bias="0.5">
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fourthCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.fourthColorId)}"
+                    app:cardBackgroundColorId="@{model.fourthColorId}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/thirdCard"
+                    app:layout_constraintTop_toBottomOf="@id/secondCard"
+                    app:layout_constraintVertical_bias="0.5">
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <nl.dionsegijn.konfetti.KonfettiView
+            android:id="@+id/confettiView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pagerAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="pageTransformer"
+            type="androidx.viewpager2.widget.ViewPager2.PageTransformer" />
+
+        <variable
+            name="pagerListener"
+            type="androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="handler"
+            type="com.englishforkids.view.teaching.color.ColorFragment" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorColorsBackground"
+        tools:context=".view.teaching.color.ColorFragment"
+        tools:ignore="ContentDescription">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_round_arrow_back_24"
+            app:title="@string/colorsTitle" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/nameText"
+            android:layout_marginTop="?attr/actionBarSize"
+            app:adapter="@{pagerAdapter}"
+            app:pageTransformer="@{pageTransformer}"
+            app:pagerListener="@{pagerListener}" />
+
+        <TextView
+            android:id="@+id/nameText"
+            style="@style/NameStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{name, default=Name}" />
+
+        <ImageButton
+            android:id="@+id/btnPrevious"
+            style="@style/ArrowStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:onClick="@{(view) -> handler.onPreviousClick(view)}"
+            android:src="@drawable/ic_arrow_left_48"
+            android:tint="@color/colorColorsButtonTint" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            style="@style/ArrowStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="28dp"
+            android:onClick="@{(view) -> handler.onNextClick(view)}"
+            android:src="@drawable/ic_arrow_right_48"
+            android:tint="@color/colorColorsButtonTint" />
+
+    </RelativeLayout>
+</layout>

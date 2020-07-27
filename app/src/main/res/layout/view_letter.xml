@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="letter"
+            type="String" />
+    </data>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/poppins_bold"
+        android:background="@color/colorAlphabetBackground"
+        android:gravity="center"
+        android:text="@{letter, default=Aa}"
+        android:textColor="@color/colorTextWhite"
+        android:textSize="150sp">
+
+    </TextView>
+
+</layout>

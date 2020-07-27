@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">EnglishForKids</string>
+    <string name="app_name">English For Kids</string>
+
+    <string name="homepageTitle">English For Kids</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
+    <string name="otherApps">Other Apps</string>
+
+    <string name="colorsTitle">Colors</string>
+    <string name="alphabetTitle">Alphabet</string>
+    <string name="animalsTitle">Animals</string>
+    <string name="fruitsTitle">Fruits</string>
+    <string name="objectsTitle">Objects</string>
+    <string name="numbersTitle">Numbers</string>
+    <string name="alphabetTestTitle">Alphabet Test</string>
+    <string name="capitalLetters">Capital Letters</string>
+    <string name="smallLetters">Small Letters</string>
+    <string name="together">Together</string>
+    <string name="colorsTestTitle">Colors Test</string>
+
+    <string name="itsTest">Test</string>
 </resources>

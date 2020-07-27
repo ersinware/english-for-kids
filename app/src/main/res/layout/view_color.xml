@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="cardBackgroundColorId"
+            type="Integer" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        app:cardBackgroundColorId="@{cardBackgroundColorId}"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:rippleColor="@android:color/transparent">
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

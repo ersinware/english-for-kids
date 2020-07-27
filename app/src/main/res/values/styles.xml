@@ -1,10 +1,107 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- HOMEPAGE -->
+    <style name="StartHomepageCardStyle">
+        <item name="cardElevation">12dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+    </style>
+
+    <style name="EndHomepageCardStyle">
+        <item name="cardElevation">12dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+    <style name="FullHomepageCardStyle">
+        <item name="cardElevation">12dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="HomepageCardTitleStyle">
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!-- TEACHING -->
+    <style name="ArrowStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">28dp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="NameStyle">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom">64dp</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- TEST -->
+    <style name="AlphabetTestTextStyle">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textSize">65sp</item>
+    </style>
+
+    <style name="TestCardStyle">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="cardElevation">12dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="rippleColor">@android:color/transparent</item>
+    </style>
+
+    <style name="ImageTestImageStyle">
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- GENERAL STYLES -->
+    <style name="ToolbarStyle" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="popupTheme">@style/ToolbarPopupTheme</item>
+        <item name="titleTextAppearance">@style/ToolbarTitleTextAppearance</item>
+        <item name="titleMarginTop">13dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="ToolbarTitleTextAppearance" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="ToolbarPopupTheme">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="popupMenuBackground">@drawable/popup_background</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="radioButtonStyle">@style/PopupMenuRadioButtonStyle</item>
+    </style>
+
+    <style name="PopupMenuRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/colorRadioButtonTint</item>
+    </style>
 </resources>

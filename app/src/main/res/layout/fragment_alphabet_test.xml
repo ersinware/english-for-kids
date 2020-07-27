@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.englishforkids.viewmodel.alphabet.AlphabetTestModel" />
+
+        <variable
+            name="handler"
+            type="com.englishforkids.view.test.AlphabetTestFragment" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAlphabetBackground"
+        tools:context=".view.test.AlphabetTestFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/alphabet_test_right_menu"
+                app:navigationIcon="@drawable/ic_round_arrow_back_24"
+                app:title="@string/alphabetTestTitle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/testCardsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/firstCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.firstLetter)}"
+                    app:cardBackgroundColor="@color/colorAlphabetTestCard"
+                    app:layout_constraintBottom_toTopOf="@id/thirdCard"
+                    app:layout_constraintEnd_toStartOf="@id/secondCard"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5">
+
+                    <TextView
+                        android:id="@+id/firstText"
+                        style="@style/AlphabetTestTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@{model.firstLetter, default=a}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/secondCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.secondLetter)}"
+                    app:cardBackgroundColor="@color/colorAlphabetTestCard"
+                    app:layout_constraintBottom_toTopOf="@id/fourthCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/firstCard"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5">
+
+                    <TextView
+                        android:id="@+id/secondText"
+                        style="@style/AlphabetTestTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@{model.secondLetter, default=b}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/thirdCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.thirdLetter)}"
+                    app:cardBackgroundColor="@color/colorAlphabetTestCard"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/fourthCard"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstCard"
+                    app:layout_constraintVertical_bias="0.5">
+
+                    <TextView
+                        android:id="@+id/thirdText"
+                        style="@style/AlphabetTestTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@{model.thirdLetter, default=c}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fourthCard"
+                    style="@style/TestCardStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.fourthLetter)}"
+                    app:cardBackgroundColor="@color/colorAlphabetTestCard"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/thirdCard"
+                    app:layout_constraintTop_toBottomOf="@id/secondCard"
+                    app:layout_constraintVertical_bias="0.5">
+
+                    <TextView
+                        android:id="@+id/fourthText"
+                        style="@style/AlphabetTestTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@{model.fourthLetter, default=f}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <nl.dionsegijn.konfetti.KonfettiView
+            android:id="@+id/confettiView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+    </RelativeLayout>
+</layout>

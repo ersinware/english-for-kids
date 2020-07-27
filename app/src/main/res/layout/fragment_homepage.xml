@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.englishforkids.view.HomepageFragment" />
+
+        <variable
+            name="colorsImageId"
+            type="Integer" />
+
+        <variable
+            name="alphabetImageId"
+            type="Integer" />
+
+        <variable
+            name="animalsImageId"
+            type="Integer" />
+
+        <variable
+            name="fruitsImageId"
+            type="Integer" />
+
+        <variable
+            name="objectsImageId"
+            type="Integer" />
+
+        <variable
+            name="numbersImageId"
+            type="Integer" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/colorPrimary"
+        tools:context=".view.HomepageFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="ContentDescription, UseCompoundDrawables">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/homepage_right_menu"
+                app:title="@string/homepageTitle" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/colorsCard"
+                style="@style/StartHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:backgroundTint="@color/colorColorsBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintEnd_toStartOf="@id/alphabetCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/colorsTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{colorsImageId}" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/alphabetCard"
+                style="@style/EndHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:backgroundTint="@color/colorAlphabetBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/colorsCard"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alphabetTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{alphabetImageId}" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/animalsCard"
+                style="@style/FullHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:backgroundTint="@color/colorAnimalsBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/colorsCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/animalsTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{animalsImageId}"  />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fruitsCard"
+                style="@style/FullHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:backgroundTint="@color/colorFruitsBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/animalsCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fruitsTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{fruitsImageId}" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/objectsCard"
+                style="@style/StartHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/colorObjectsBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/numbersCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fruitsCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/objectsTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{objectsImageId}"  />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/numbersCard"
+                style="@style/EndHomepageCardStyle"
+                android:layout_width="0dp"
+                android:layout_height="225dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/colorNumbersBackground"
+                android:onClick="@{(view) -> handler.onCardClick(view)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/objectsCard"
+                app:layout_constraintTop_toBottomOf="@id/fruitsCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/HomepageCardTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/numbersTitle" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:imageId="@{numbersImageId}"  />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>
+
+
