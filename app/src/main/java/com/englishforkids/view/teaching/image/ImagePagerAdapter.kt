@@ -1,15 +1,16 @@
 package com.englishforkids.view.teaching.image
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.englishforkids.databinding.ViewImageBinding
 import com.englishforkids.view.appContext
-import com.englishforkids.view.utils.animation.PagerClickAnimator
 import com.englishforkids.viewmodel.image.ImageModel
 
 class ImagePagerAdapter(
-    private val model: ImageModel
+    private val model: ImageModel,
+    private val onClick: (View, Int) -> Unit
 ) : RecyclerView.Adapter<ImagePagerAdapter.ImageHolder>() {
 
     override fun onCreateViewHolder(
@@ -29,13 +30,9 @@ class ImagePagerAdapter(
         holder: ImageHolder,
         position: Int
     ) = holder.run {
-        binding.imageId = model.data[position]
+        binding.imageUrl = model.data[position]
         itemView.setOnClickListener {
-            if (PagerClickAnimator.running)
-                return@setOnClickListener
-
-            PagerClickAnimator.start(it)
-            model.speak(position)
+            onClick.invoke(it, position)
         }
     }
 

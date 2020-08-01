@@ -1,14 +1,15 @@
 package com.englishforkids.view.teaching.alphabet
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.englishforkids.databinding.ViewLetterBinding
-import com.englishforkids.view.utils.animation.PagerClickAnimator
 import com.englishforkids.viewmodel.alphabet.AlphabetModel
 
 class AlphabetPagerAdapter(
-    private val model: AlphabetModel
+    private val model: AlphabetModel,
+    private val onClick: (View, Int) -> Unit
 ) : RecyclerView.Adapter<AlphabetPagerAdapter.LetterHolder>() {
 
     override fun onCreateViewHolder(
@@ -30,11 +31,7 @@ class AlphabetPagerAdapter(
     ) = holder.run {
         binding.letter = model.data[position]
         itemView.setOnClickListener {
-            if (PagerClickAnimator.running)
-                return@setOnClickListener
-
-            PagerClickAnimator.start(it)
-            model.speak(position)
+            onClick.invoke(it, position)
         }
     }
 

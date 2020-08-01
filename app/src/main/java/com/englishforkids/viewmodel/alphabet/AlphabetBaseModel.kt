@@ -1,21 +1,23 @@
 package com.englishforkids.viewmodel.alphabet
 
-import androidx.lifecycle.ViewModel
-import com.englishforkids.view.utils.lettermode.LetterMode
+import com.englishforkids.model.AlphabetRepository
 
-abstract class AlphabetBaseModel(
-    letterMode: LetterMode
-) : ViewModel() {
+interface AlphabetBaseModel {
 
-    var letterMode: LetterMode? = null
-        set(value) {
-            field = value
-            onLetterModeChange()
-        }
+    val repo: AlphabetRepository
 
-    init {
-        this.letterMode = letterMode
+    var data: Array<String>
+
+    var letterMode: LetterMode
+
+    fun onLetterModeChange() {
+        data = getDataByLetterMode()
     }
 
-    abstract fun onLetterModeChange()
+    fun getDataByLetterMode() =
+        when (letterMode) {
+            LetterMode.MODE_CAPITAL -> repo.capitalLetters
+            LetterMode.MODE_SMALL -> repo.smallLetters
+            else -> repo.togetherLetters
+        }
 }

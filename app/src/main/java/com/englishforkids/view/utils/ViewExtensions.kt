@@ -1,8 +1,11 @@
 package com.englishforkids.view.utils
 
+import android.graphics.drawable.Drawable
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
+import com.englishforkids.R
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -27,26 +30,31 @@ suspend fun View.awaitAdd() =
             })
     }
 
-/*
- fun ViewGroup.addCorrectImage(
-    inflater: LayoutInflater
+fun ViewGroup.addCorrectImage(
+    inflater: LayoutInflater,
+    background: Drawable
 ) = addView(
     inflater.inflate(
         R.layout.baby_correct_image,
         this,
         false
-    )
+    ).apply {
+        this.background = background
+    }
 )
 
- fun ViewGroup.addIncorrectImage(
-    inflater: LayoutInflater
+fun ViewGroup.addIncorrectImage(
+    inflater: LayoutInflater,
+    background: Drawable
 ) = addView(
     inflater.inflate(
         R.layout.baby_incorrect_image,
         this,
         false
-    )
-) */
+    ).apply {
+        this.background = background
+    }
+)
 
 fun ViewGroup.setVisibilityChildren(
     visibility: Int
@@ -68,5 +76,13 @@ fun ViewGroup.removeLastChildrenOfChildren() {
             if (it.childCount > 1)
                 for (i in it.childCount - 1 downTo 1)
                     it.removeViewAt(i)
+        }
+}
+
+fun ViewGroup.removeChildrenOfChildren() {
+    for (child in children)
+        (child as? ViewGroup)?.let {
+            for (i in it.childCount - 1 downTo 0)
+                it.removeViewAt(i)
         }
 }

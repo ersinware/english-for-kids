@@ -56,23 +56,21 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         savedInstanceState: Bundle?
     ) = binding.root
 
-    override fun onStop() {
-        super.onStop()
-
-        job.run {
-            if (!isCompleted)
-                cancel()
-        }
-    }
-
     override fun onStart() {
         super.onStart()
 
-        if (job.isCancelled) {
+        if (job.isCancelled)
             job = lifecycleScope.launch {
                 delay(1000)
                 goHomepage()
             }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        job.run {
+            if (!isCompleted) cancel()
         }
     }
 }

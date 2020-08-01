@@ -25,10 +25,8 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
 
         setupTransitions()
         initBinding()
-        lifecycleScope.launch {
-            setupBinding()
-            setupToolbar()
-        }
+        setupBinding()
+        setupToolbar()
     }
 
     private fun setupTransitions() {
@@ -48,12 +46,12 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
     private fun setupBinding() =
         binding.run {
             handler = this@HomepageFragment
-            colorsImageId = R.drawable.homepage_colors
-            alphabetImageId = R.drawable.homepage_alphabet
-            animalsImageId = R.drawable.homepage_animals
-            fruitsImageId = R.drawable.homepage_fruits
-            objectsImageId = R.drawable.homepage_objects
-            numbersImageId = R.drawable.homepage_numbers
+            colorsImageUrl = "homepageImages/colors.png"
+            alphabetImageUrl = "homepageImages/alphabet.png"
+            animalsImageUrl = "animals/Elephant.png"
+            fruitsImageUrl = "fruits/Watermelon.png"
+            objectsImageUrl = "objects/Airplane.png"
+            numbersImageUrl = "numbers/3Three.png"
         }
 
     private fun setupToolbar() =

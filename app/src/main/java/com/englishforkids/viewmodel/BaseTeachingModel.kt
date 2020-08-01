@@ -1,8 +1,13 @@
 package com.englishforkids.viewmodel
 
-interface BaseTeachingModel<T> {
+import androidx.lifecycle.ViewModel
+import com.englishforkids.model.BaseRepository
 
-    val data: Array<T>
+abstract class BaseTeachingModel<T> : ViewModel() {
 
-    fun speak(position: Int)
+    abstract val repo: BaseRepository
+
+    abstract val data: Array<T>
+
+    abstract fun speak(position: Int)
 }

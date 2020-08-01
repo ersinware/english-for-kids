@@ -56,7 +56,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="24dp"
-                    android:onClick="@{(view) -> handler.onCardClick(view, model.firstImgId)}"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.firstElement)}"
                     app:cardBackgroundColorId="@{cardBackgroundColorId}"
                     app:layout_constraintBottom_toTopOf="@id/thirdCard"
                     app:layout_constraintEnd_toStartOf="@id/secondCard"
@@ -70,7 +70,7 @@
                         style="@style/ImageTestImageStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:imageId="@{model.firstImgId}" />
+                        app:imageUrl="@{model.firstElement}" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -81,7 +81,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="24dp"
-                    android:onClick="@{(view) -> handler.onCardClick(view, model.secondImgId)}"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.secondElement)}"
                     app:cardBackgroundColorId="@{cardBackgroundColorId}"
                     app:layout_constraintBottom_toTopOf="@id/fourthCard"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
                         style="@style/ImageTestImageStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:imageId="@{model.secondImgId}" />
+                        app:imageUrl="@{model.secondElement}" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -107,7 +107,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="24dp"
-                    android:onClick="@{(view) -> handler.onCardClick(view, model.thirdImgId)}"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.thirdElement)}"
                     app:cardBackgroundColorId="@{cardBackgroundColorId}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/fourthCard"
@@ -121,7 +121,7 @@
                         style="@style/ImageTestImageStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:imageId="@{model.thirdImgId}" />
+                        app:imageUrl="@{model.thirdElement}" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -134,7 +134,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="24dp"
-                    android:onClick="@{(view) -> handler.onCardClick(view, model.fourthImgId)}"
+                    android:onClick="@{(view) -> handler.onCardClick(view, model.fourthElement)}"
                     app:cardBackgroundColorId="@{cardBackgroundColorId}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,7 @@
                         style="@style/ImageTestImageStyle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:imageId="@{model.fourthImgId}" />
+                        app:imageUrl="@{model.fourthElement}" />
 
                 </com.google.android.material.card.MaterialCardView>
 

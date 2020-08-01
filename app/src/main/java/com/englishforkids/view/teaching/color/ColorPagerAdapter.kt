@@ -1,14 +1,15 @@
 package com.englishforkids.view.teaching.color
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.englishforkids.databinding.ViewColorBinding
-import com.englishforkids.view.utils.animation.PagerClickAnimator
 import com.englishforkids.viewmodel.color.ColorModel
 
 class ColorPagerAdapter(
-    private val model: ColorModel
+    private val model: ColorModel,
+    private val onClick: (View, Int) -> Unit
 ) : RecyclerView.Adapter<ColorPagerAdapter.ColorHolder>() {
 
     override fun onCreateViewHolder(
@@ -30,11 +31,7 @@ class ColorPagerAdapter(
     ) = holder.run {
         binding.cardBackgroundColorId = model.data[position]
         itemView.setOnClickListener {
-            if (PagerClickAnimator.running)
-                return@setOnClickListener
-
-            PagerClickAnimator.start(it)
-            model.speak(position)
+            onClick.invoke(it, position)
         }
     }
 

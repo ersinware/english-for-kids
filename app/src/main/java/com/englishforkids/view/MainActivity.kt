@@ -6,6 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import com.englishforkids.R
+import com.englishforkids.mediautils.SoundPlayer
+import com.englishforkids.mediautils.Speaker
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -13,7 +15,7 @@ import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
- class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val interstitialAd = InterstitialAd(this).apply {
         adUnitId = "ca-app-pub-3940256099942544/1033173712"
@@ -29,6 +31,8 @@ import kotlin.random.Random
         setContentView(R.layout.activity_main)
 
         MobileAds.initialize(this)
+        Speaker.initialize()
+        SoundPlayer.initialize()
         setupGraph()
     }
 
@@ -69,8 +73,7 @@ import kotlin.random.Random
                 if (Random.nextInt(0, 4) == 0)
                     if (interstitialAd.isLoaded)
                         interstitialAd.show()
-                    else
-                        loadInterstitialAd()
+                    else loadInterstitialAd()
             }
         }
 

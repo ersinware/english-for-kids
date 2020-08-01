@@ -1,4 +1,4 @@
-package com.englishforkids.view.utils.lettermode
+package com.englishforkids.viewmodel.alphabet
 
 enum class LetterMode {
     MODE_CAPITAL,

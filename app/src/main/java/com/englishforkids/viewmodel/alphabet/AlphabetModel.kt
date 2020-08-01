@@ -1,24 +1,27 @@
 package com.englishforkids.viewmodel.alphabet
 
-import com.englishforkids.view.utils.lettermode.LetterMode
+import com.englishforkids.mediautils.Speaker
+import com.englishforkids.model.AlphabetRepository
 import com.englishforkids.viewmodel.BaseTeachingModel
 
-class AlphabetModel(
-    letterMode: LetterMode
-) : AlphabetBaseModel(letterMode), BaseTeachingModel<String> {
+class AlphabetModel : BaseTeachingModel<String>(), AlphabetBaseModel {
 
-    override lateinit var data: Array<String>
+    override val repo = AlphabetRepository
 
-    override fun onLetterModeChange() {
-        // letterMode'a göre ata
-        data = arrayOf(
-            "Aa",
-            "Bb",
-            "Cc"
-        )
-    }
+    override var letterMode = LetterModeHelper.getLetterMode()
+        set(value) {
+            if (field == value)
+                return
+
+            field = value
+            onLetterModeChange()
+        }
+
+    override var data = getDataByLetterMode()
 
     override fun speak(position: Int) {
-        // data'dan al
+        Speaker.getInstance().speak(
+            data[position][0].toString()
+        )
     }
 }

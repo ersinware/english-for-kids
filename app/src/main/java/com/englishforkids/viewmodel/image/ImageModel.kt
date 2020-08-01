@@ -1,34 +1,21 @@
 package com.englishforkids.viewmodel.image
 
-import androidx.lifecycle.ViewModel
-import com.englishforkids.R
+import com.englishforkids.mediautils.Speaker
+import com.englishforkids.model.ImageRepository
 import com.englishforkids.view.utils.Target
 import com.englishforkids.viewmodel.BaseTeachingModel
 
-class ImageModel(
-    private val target: Target
-) : ViewModel(), BaseTeachingModel<Int> {
+class ImageModel(target: Target) : BaseTeachingModel<String>() {
 
-    override val data: Array<Int>
+    override val repo = ImageRepository(target)
 
-    val imageNames: Array<String>
+    override val data = repo.imageUrls
 
-    init {
-        // target'a göre
-        data = arrayOf(
-            R.drawable.homepage_animals,
-            R.drawable.homepage_fruits,
-            R.drawable.homepage_objects
-        )
-
-        imageNames = arrayOf(
-            "First Name",
-            "Second Name",
-            "Third Name"
-        )
-    }
+    val imageNames = repo.imageNames
 
     override fun speak(position: Int) {
-        // imageNames'ten al
+        Speaker.getInstance().speak(
+            imageNames[position]
+        )
     }
 }

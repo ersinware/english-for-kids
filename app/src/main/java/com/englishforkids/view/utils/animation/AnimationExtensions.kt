@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import com.englishforkids.R
 import com.google.android.material.transition.MaterialSharedAxis
 import com.google.android.material.transition.VisibilityAnimatorProvider
 import kotlin.coroutines.resume
@@ -58,45 +60,6 @@ private fun getSecondAnimatorProvider(
     }
 }
 
-/*
- suspend fun View.awaitFadeAnimation(
-    forward: Boolean
-) = suspendCoroutine<Unit> { continuation ->
-    // it is not always false
-    if (this == null)
-        return@suspendCoroutine
-
-    startAnimation(
-        AnimationUtils.loadAnimation(
-            context,
-            if (forward)
-                R.anim.anim_fade_in
-            else
-                R.anim.anim_fade_out
-        ).apply {
-            setAnimationListener(
-                object : Animation.AnimationListener {
-                    override fun onAnimationStart(animation: Animation?) {
-                        visibility = if (forward)
-                            View.VISIBLE
-                        else
-                            View.INVISIBLE
-                    }
-
-                    override fun onAnimationRepeat(animation: Animation?) {
-
-                    }
-
-                    override fun onAnimationEnd(animation: Animation?) {
-                        setAnimationListener(null)
-                        continuation.resume(Unit)
-                    }
-                }
-            )
-        }
-    )
-} */
-
 suspend fun Animation.awaitEnd() =
     suspendCoroutine<Unit> { continuation ->
         setAnimationListener(
@@ -116,6 +79,40 @@ suspend fun Animation.awaitEnd() =
             }
         )
     }
+
+suspend fun View.awaitFade(
+    forward: Boolean
+) = suspendCoroutine<Unit> { continuation ->
+    // it is not always false
+    if (this == null)
+        return@suspendCoroutine
+
+    startAnimation(
+        AnimationUtils.loadAnimation(
+            context,
+            if (forward) R.anim.anim_fade_in
+            else R.anim.anim_fade_out
+        ).apply {
+            setAnimationListener(
+                object : Animation.AnimationListener {
+                    override fun onAnimationStart(animation: Animation?) {
+                        visibility = if (forward) View.VISIBLE
+                        else View.INVISIBLE
+                    }
+
+                    override fun onAnimationRepeat(animation: Animation?) {
+
+                    }
+
+                    override fun onAnimationEnd(animation: Animation?) {
+                        setAnimationListener(null)
+                        continuation.resume(Unit)
+                    }
+                }
+            )
+        }
+    )
+}
 
 fun View.fadeOut() =
     AlphaAnimation(

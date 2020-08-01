@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="imageId"
-            type="Integer" />
+            name="imageUrl"
+            type="String" />
     </data>
 
     <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="48dp"
-        app:imageId="@{imageId}"
+        app:imageUrl="@{imageUrl}"
         tools:ignore="ContentDescription">
 
     </ImageView>

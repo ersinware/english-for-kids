@@ -1,55 +1,28 @@
 package com.englishforkids.viewmodel.image
 
-import androidx.lifecycle.ViewModel
-import com.englishforkids.R
+import com.englishforkids.mediautils.Speaker
+import com.englishforkids.model.ImageRepository
 import com.englishforkids.view.utils.Target
 import com.englishforkids.viewmodel.BaseTestModel
+import com.englishforkids.viewmodel.SpeakerModel
 
 class ImageTestModel(
-    private val target: Target
-) : ViewModel(), BaseTestModel<Int> {
+    target: Target
+) : BaseTestModel<String>(), SpeakerModel<String> {
 
-    override val data: Array<Int>
+    override val repo = ImageRepository(target)
 
-    private val imageNames: Array<String>
+    override val data = repo.imageUrls
+
+    private val imageNames = repo.imageNames
 
     init {
-        // target'a göre
-        data = arrayOf(
-            R.drawable.homepage_animals,
-            R.drawable.homepage_fruits,
-            R.drawable.homepage_objects
-        )
-
-        imageNames = arrayOf(
-            "First Name",
-            "Second Name",
-            "Third Name"
-        )
-        loadModel()
-    }
-
-    var firstImgId: Int? = null
-
-    var secondImgId: Int? = null
-
-    var thirdImgId: Int? = null
-
-    var fourthImgId: Int? = null
-
-    var selectedImgId: Int? = null
-
-    fun loadModel() {
-        // data'dan al
-        firstImgId = R.drawable.homepage_alphabet
-        secondImgId = R.drawable.homepage_animals
-        thirdImgId = R.drawable.homepage_fruits
-        fourthImgId = R.drawable.homepage_objects
-
-        selectedImgId = null
+        loadElements()
     }
 
     override fun speak() {
-        // imageNames'ten selectedImgId'nin index'ine göre söylet
+        Speaker.getInstance().speak(
+            imageNames[findIndex(selected!!)]
+        )
     }
 }

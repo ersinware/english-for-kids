@@ -1,25 +1,21 @@
 package com.englishforkids.viewmodel.color
 
-import androidx.lifecycle.ViewModel
-import com.englishforkids.R
+import com.englishforkids.mediautils.Speaker
+import com.englishforkids.model.ColorRepository
 import com.englishforkids.viewmodel.BaseTeachingModel
 
-class ColorModel : ViewModel(), BaseTeachingModel<Int> {
+class ColorModel : BaseTeachingModel<Int>() {
 
-    override val data = arrayOf(
-        R.color.colorAccent,
-        R.color.colorAlphabetButtonTint,
-        R.color.colorFruitsBackground
-    )
+    override val repo = ColorRepository
 
-    val colorNames = arrayOf(
-        "First Name",
-        "Second Name",
-        "Third Name"
-    )
+    override val data = repo.colorIds
+
+    val colorNames = repo.colorNames
 
     override fun speak(position: Int) {
-        // colorNames'ten al
+        Speaker.getInstance().speak(
+            colorNames[position]
+        )
     }
 
 }

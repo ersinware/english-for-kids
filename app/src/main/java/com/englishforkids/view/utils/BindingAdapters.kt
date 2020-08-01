@@ -2,6 +2,7 @@ package com.englishforkids.view.utils
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -49,6 +50,16 @@ fun setImageResource(
     .with(appContext)
     .load(imageId)
     .into(img)
+
+@BindingAdapter("imageUrl")
+fun setImageByUrl(
+    img: ImageView,
+    imageUrl: String
+) = Glide
+    .with(img)
+    .load(Uri.parse("file:///android_asset/$imageUrl"))
+    .into(img)
+
 
 @BindingAdapter("pagerListener")
 fun setPagerListener(

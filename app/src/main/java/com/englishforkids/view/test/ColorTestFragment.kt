@@ -1,15 +1,18 @@
 package com.englishforkids.view.test
 
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import android.view.View
+import androidx.lifecycle.ViewModelProviders
 import com.englishforkids.databinding.FragmentColorTestBinding
+import com.englishforkids.view.utils.removeChildrenOfChildren
+import com.englishforkids.view.utils.setVisibilityChildren
 import com.englishforkids.viewmodel.color.ColorTestModel
+import kotlinx.android.synthetic.main.fragment_alphabet_test.*
 
 class ColorTestFragment : TestFragment<Int>() {
 
     override lateinit var binding: FragmentColorTestBinding
 
-    override val model by viewModels<ColorTestModel>()
+    override lateinit var model: ColorTestModel
 
     override fun initBinding() {
         binding = FragmentColorTestBinding
@@ -19,6 +22,12 @@ class ColorTestFragment : TestFragment<Int>() {
             }
     }
 
+    override fun initModel() {
+        model = ViewModelProviders
+            .of(this)
+            .get(ColorTestModel::class.java)
+    }
+
     override fun setupBinding() {
         binding.apply {
             handler = this@ColorTestFragment
@@ -26,8 +35,11 @@ class ColorTestFragment : TestFragment<Int>() {
         }
     }
 
-    override fun setupToolbar() =
-        binding.toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
+    override fun onFadeOut() {
+        testCardsLayout.run {
+            removeChildrenOfChildren()
+            setVisibilityChildren(View.VISIBLE)
         }
+        model.loadElements()
+    }
 }
