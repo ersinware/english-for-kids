@@ -18,7 +18,7 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
 
     private val interstitialAd = InterstitialAd(this).apply {
-        adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        adUnitId = "ca-app-pub-8029051249946424/4159256842"
         adListener = object : AdListener() {
             override fun onAdClosed() {
                 loadInterstitialAd()

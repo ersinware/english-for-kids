@@ -5,15 +5,16 @@
 
     <application
         android:name=".view.MyApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:resizeableActivity="false"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:resizeableActivity="false"
         tools:node="replace"
-        tools:replace="label">
+        tools:replace="label"
+        tools:targetApi="n">
 
         <meta-data
             android:name="com.google.android.gms.version"

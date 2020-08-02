@@ -27,11 +27,9 @@
     <color name="colorObjectsTestCard">@color/colorObjectsBackground</color>
     <color name="colorNumbersTestCard">@color/colorNumbersBackground</color>
 
-    <color name="colorBlue">#1976D2</color>
-    <color name="colorDarkBlue">#00008B</color>
+    <color name="colorBlue">#00008B</color>
     <color name="colorGreen">#008000</color>
     <color name="colorRed">#D32F2F</color>
-    <color name="colorDarkRed">#8B0000</color>
     <color name="colorYellow">#FBC02D</color>
     <color name="colorOrange">#F57C00</color>
     <color name="colorBrown">#A52A2A</color>

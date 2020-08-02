@@ -24,6 +24,6 @@
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        ads:adUnitId="ca-app-pub-8029051249946424/8352000333" />
 
 </RelativeLayout>

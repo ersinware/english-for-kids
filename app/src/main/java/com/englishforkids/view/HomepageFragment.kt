@@ -1,5 +1,7 @@
 package com.englishforkids.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +18,7 @@ import com.englishforkids.view.utils.animation.getTransition
 import kotlinx.android.synthetic.main.fragment_homepage.*
 import kotlinx.coroutines.launch
 
-class HomepageFragment : Fragment(R.layout.fragment_homepage) {
+class HomepageFragment : Fragment() {
 
     private lateinit var binding: FragmentHomepageBinding
 
@@ -65,15 +67,43 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         }
 
     private fun onShareClick() {
-
+        startActivity(
+            Intent.createChooser(
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(
+                        Intent.EXTRA_TEXT,
+                        "https://play.google.com/store/apps/" +
+                                "details?id=english.for.kids"
+                    )
+                },
+                resources.getString(R.string.share)
+            )
+        )
     }
 
     private fun onRateClick() {
-
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(
+                    "https://play.google.com/store/apps/" +
+                            "details?id=english.for.kids"
+                )
+            )
+        )
     }
 
     private fun onOtherAppsClick() {
-
+        startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse(
+                    "https://play.google.com/store/apps/" +
+                            "dev?id=7294882346252393987"
+                )
+            )
+        )
     }
 
     override fun onCreateView(
@@ -82,12 +112,14 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
         savedInstanceState: Bundle?
     ) = binding.root
 
+    private val cardClickAnimator = CardClickAnimator()
+
     fun onCardClick(card: View) {
-        if (CardClickAnimator.running)
+        if (cardClickAnimator.running)
             return
 
         lifecycleScope.launch {
-            CardClickAnimator.awaitEnd(card)
+            cardClickAnimator.awaitEnd(card)
             handleClick(card)
         }
     }
@@ -116,10 +148,4 @@ class HomepageFragment : Fragment(R.layout.fragment_homepage) {
             objectsCard -> Target.TARGET_OBJECTS
             else -> Target.TARGET_NUMBERS
         }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        CardClickAnimator.running = false
-    }
 }

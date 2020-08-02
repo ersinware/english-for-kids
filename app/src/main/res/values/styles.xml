@@ -61,6 +61,15 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="NameStyleLandscape">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom">36dp</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <!-- TEST -->
     <style name="AlphabetTestTextStyle">
         <item name="fontFamily">@font/poppins_bold</item>

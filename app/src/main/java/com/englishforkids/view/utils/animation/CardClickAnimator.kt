@@ -3,7 +3,7 @@ package com.englishforkids.view.utils.animation
 import android.view.View
 import android.view.animation.ScaleAnimation
 
-object CardClickAnimator {
+class CardClickAnimator {
 
     private val anim = ScaleAnimation(
         1f,

@@ -7,10 +7,8 @@ object ColorRepository : BaseRepository {
     val colorIds =
         arrayOf(
             R.color.colorBlue,
-            R.color.colorDarkBlue,
             R.color.colorGreen,
             R.color.colorRed,
-            R.color.colorDarkRed,
             R.color.colorYellow,
             R.color.colorOrange,
             R.color.colorBrown,
@@ -23,10 +21,8 @@ object ColorRepository : BaseRepository {
     val colorNames =
         arrayOf(
             "Blue",
-            "Dark Blue",
             "Green",
             "Red",
-            "Dark Red",
             "Yellow",
             "Orange",
             "Brown",

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Çocuklar için İngilizce</string>
+
+    <string name="homepageTitle">Çocuklar için İngilizce</string>
+    <string name="share">Paylaş</string>
+    <string name="rate">Puanla</string>
+    <string name="otherApps">Diğer Uygulamalar</string>
+
+    <string name="colorsTitle">Renkler</string>
+    <string name="alphabetTitle">Alfabe</string>
+    <string name="animalsTitle">Hayvanlar</string>
+    <string name="fruitsTitle">Meyveler</string>
+    <string name="objectsTitle">Nesneler</string>
+    <string name="numbersTitle">Rakamlar</string>
+
+    <string name="alphabetTestTitle">Alfabe Testi</string>
+    <string name="capitalLetters">Büyük Harfler</string>
+    <string name="smallLetters">Küçük Harfler</string>
+    <string name="together">Birlikte</string>
+
+    <string name="colorsTestTitle">Renkler Testi</string>
+
+    <string name="itsTest">Testi</string>
+</resources>

@@ -53,13 +53,15 @@ abstract class TeachingFragment<T> : Fragment() {
 
     protected abstract fun setupBinding()
 
+    private val pagerClickAnimator = PagerClickAnimator()
+
     protected fun onPagerClick(view: View, position: Int) {
-        if (PagerClickAnimator.running)
+        if (pagerClickAnimator.running)
             return
 
         lifecycleScope.launch {
             model.speak(position)
-            PagerClickAnimator.awaitEnd(view)
+            pagerClickAnimator.awaitEnd(view)
         }
     }
 
@@ -130,23 +132,20 @@ abstract class TeachingFragment<T> : Fragment() {
 
     protected abstract fun handleMenuClick(item: MenuItem)
 
+    private val btnClickAnimator = ButtonClickAnimator()
+
     fun onPreviousClick(v: View, pager: ViewPager2) {
-        ButtonClickAnimator.start(v)
+        btnClickAnimator.start(v)
         pager.currentItem -= 1
     }
 
     fun onNextClick(v: View, pager: ViewPager2) {
-        ButtonClickAnimator.start(v)
+        btnClickAnimator.start(v)
         pager.currentItem += 1
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean("saved", true)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        PagerClickAnimator.running = false
     }
 }

@@ -3,7 +3,7 @@ package com.englishforkids.view.utils.animation
 import android.view.View
 import android.view.animation.ScaleAnimation
 
-object PagerClickAnimator {
+class PagerClickAnimator {
 
     private val anim = ScaleAnimation(
         1f,

@@ -75,13 +75,15 @@ abstract class TestFragment<T> : Fragment() {
             }
 
 
+    private val cardClickAnimator = CardClickAnimator()
+
     fun onCardClick(card: View, value: T) {
-        if (CardClickAnimator.running)
+        if (cardClickAnimator.running)
             return
 
         card.isClickable = false
         lifecycleScope.launch {
-            CardClickAnimator.awaitEnd(card)
+            cardClickAnimator.awaitEnd(card)
             if (value == model.selected)
                 onCorrect(card as ViewGroup)
             else onIncorrect(card as ViewGroup)
@@ -196,11 +198,5 @@ abstract class TestFragment<T> : Fragment() {
             for (child in testCardsLayout.children)
                 child.visibility = it.getInt("${child.id}")
         }
-    }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        CardClickAnimator.running = false
     }
 }

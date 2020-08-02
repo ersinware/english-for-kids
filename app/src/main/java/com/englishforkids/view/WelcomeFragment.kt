@@ -14,7 +14,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
+class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 
@@ -39,7 +39,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         binding = FragmentWelcomeBinding
             .inflate(layoutInflater)
             .apply {
-                imageId = R.drawable.welcome
+                imageUrl = "welcome.png"
                 lifecycleOwner = this@WelcomeFragment
             }
     }
